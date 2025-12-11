@@ -1,7 +1,7 @@
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import ProjectList from "./components/ProjectList";
-import Footer from "./components/Footer";
+import Header from "./components/Header.jsx";
+import Hero from "./components/Hero.jsx";
+import ProjectList from "./components/ProjectList.jsx";
+import Footer from "./components/Footer.jsx";
 import Skills from "./components/Skills.jsx";
 
 function App() {
