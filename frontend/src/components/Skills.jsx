@@ -17,7 +17,18 @@ export default function Skills() {
         { name: "APIs & Backend", icon: CpuChipIcon },
         { name: "Deployment", icon: RocketLaunchIcon },
     ];
-
+    const itemVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: (index) => ({
+            opacity: 1,
+            y: 0,
+            transition: {
+                delay: index * 0.2,  // ⬅ Only used in initial reveal
+                duration: 0.6,
+                ease: "easeOut",
+            },
+        }),
+    };
     return (
         <section id="skills" className="py-20 px-6 bg-gradient-to-b from-gray-100 to-gray-200">
             <motion.h2
@@ -36,11 +47,20 @@ export default function Skills() {
                     return (
                         <motion.div
                             key={index}
-                            className="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center hover:shadow-xl transition cursor-pointer"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            whileHover={{ scale: 1.05 }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            className="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center
+                   cursor-pointer transition-shadow hover:shadow-xl"
+                            custom={index}
+                            variants={itemVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            whileHover={{
+                                scale: 1.05,
+                                transition: {
+                                    duration: 0.6,
+                                    ease: "easeOut"
+                                }
+                            }}
                         >
                             <Icon className="h-12 w-12 text-purple-500 mb-3" />
                             <h3 className="text-lg font-semibold">{skill.name}</h3>
