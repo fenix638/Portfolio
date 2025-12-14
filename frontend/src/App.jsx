@@ -1,21 +1,17 @@
-import Header from "./components/Header.jsx";
-import Hero from "./components/Hero.jsx";
-import ProjectList from "./components/ProjectList.jsx";
-import Footer from "./components/Footer.jsx";
-import Skills from "./components/Skills.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Admin from "./pages/Admin";
+import Home from "./pages/Home.jsx";
 
 function App() {
+
     return (
         <>
-            <div className="min-h-screen flex flex-col">
-                <Header />
-                <Hero />
-                <Skills />
-                <ProjectList />
-                <div className="mt-auto">
-                    <Footer />
-                </div>
-            </div>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/admin" element={<Admin />} />
+                </Routes>
+            </BrowserRouter>
         </>
     );
 }

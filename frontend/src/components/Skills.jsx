@@ -1,22 +1,49 @@
 import { motion } from "framer-motion";
-import {
-    CodeBracketIcon,
-    ServerIcon,
-    CloudIcon,
-    CpuChipIcon,
-    DevicePhoneMobileIcon,
-    RocketLaunchIcon
-} from "@heroicons/react/24/solid";
+import { useEffect, useState } from "react";
+import { skillIcons } from "../icons/skillIcons";
 
 export default function Skills() {
-    const skills = [
-        { name: "JavaScript", icon: CodeBracketIcon },
-        { name: "React", icon: DevicePhoneMobileIcon },
-        { name: "Node.js", icon: ServerIcon },
-        { name: "PostgreSQL", icon: CloudIcon },
-        { name: "APIs & Backend", icon: CpuChipIcon },
-        { name: "Deployment", icon: RocketLaunchIcon },
-    ];
+    const [skills, setSkills] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchSkills = async () => {
+            try {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/skills`);
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch projects");
+                }
+
+                const data = await response.json();
+                setSkills(data);
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchSkills();
+    }, []);
+
+    if (loading) {
+        return (
+            <section className="skills">
+                <p>Loading skills...</p>
+            </section>
+        );
+    }
+
+    if (error) {
+        return (
+            <section className="skills">
+                <p className="error">Error: {error}</p>
+            </section>
+        );
+    }
+
     const itemVariants = {
         hidden: { opacity: 0, y: 30 },
         visible: (index) => ({
@@ -42,7 +69,7 @@ export default function Skills() {
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                 {skills.map((skill, index) => {
-                    const Icon = skill.icon;
+                    const Icon = skillIcons[skill.icon];
 
                     return (
                         <motion.div
@@ -62,7 +89,7 @@ export default function Skills() {
                                 }
                             }}
                         >
-                            <Icon className="h-12 w-12 text-purple-500 mb-3" />
+                            {Icon && <Icon className="h-12 w-12 text-purple-500 mb-3" />}
                             <h3 className="text-lg font-semibold">{skill.name}</h3>
                         </motion.div>
                     );

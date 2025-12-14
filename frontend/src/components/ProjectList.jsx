@@ -1,10 +1,48 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function ProjectList() {
-    const projects = [
-        { id: 1, title: "Example Project", description: "This is a project placeholder." },
-        { id: 2, title: "Second Project", description: "Another placeholder project." }
-    ];
+    const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchProjects = async () => {
+            try {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/projects`);
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch projects");
+                }
+
+                const data = await response.json();
+                setProjects(data);
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProjects();
+    }, []);
+
+    if (loading) {
+        return (
+            <section className="projects">
+                <p>Loading projects...</p>
+            </section>
+        );
+    }
+
+    if (error) {
+        return (
+            <section className="projects">
+                <p className="error">Error: {error}</p>
+            </section>
+        );
+    }
+
     const itemVariants = {
         hidden: { opacity: 0, y: 30 },
         visible: (index) => ({
@@ -41,6 +79,20 @@ export default function ProjectList() {
                     >
                         <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
                         <p className="text-gray-700">{project.description}</p>
+
+                        <div className="project-links">
+                            {project.githubUrl && (
+                                <a href={project.githubUrl} target="_blank" rel="noreferrer">
+                                    GitHub
+                                </a>
+                            )}
+                            {project.liveUrl && (
+                                <a href={project.liveUrl} target="_blank" rel="noreferrer">
+                                    Live
+                                </a>
+                            )}
+                        </div>
+
                     </motion.div>
                 ))}
             </div>
