@@ -1,5 +1,6 @@
 import express from "express";
 import prisma from "../prisma.js";
+import auth from "../middleware/auth.js";
 
 const router = express.Router();
 
@@ -23,7 +24,7 @@ router.post("/", async (req, res) => {
 });
 
 // GET all contact messages (admin)
-router.get("/", async (req, res) => {
+router.get("/", auth, async (req, res) => {
     try {
         const messages = await prisma.contactMessage.findMany({
             orderBy: { createdAt: "desc" }

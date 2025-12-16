@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import projectsRoutes from "./routes/projects.js";
 import skillsRoutes from "./routes/skills.js";
 import contactRoutes from "./routes/contact.js";
+import authRoutes from "./routes/auth.js";
 
 
 dotenv.config();
@@ -21,6 +22,8 @@ app.get("/", (req, res) => {
 app.use("/api/projects", projectsRoutes);
 app.use("/api/skills", skillsRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/auth", authRoutes);
+
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
