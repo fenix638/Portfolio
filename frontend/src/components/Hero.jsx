@@ -24,7 +24,17 @@ export default function Hero() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.5 }}
             >
-                A budding Full Stack Developer learning React, Node.js, and Postgres.
+                A passionate Full Stack Developer crafting modern web experiences from frontend to backend.
+            </motion.p>
+
+            <motion.p
+                className="text-lg max-w-2xl relative z-10"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }}
+            >
+                I enjoy designing intuitive user interfaces, developing secure APIs, and working with databases to bring complete applications to life.
+                Currently focused on React, Node.js, and PostgreSQL while constantly improving my skills through real projects.
             </motion.p>
         </section>
     );

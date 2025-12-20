@@ -86,9 +86,10 @@ export default function ProjectList() {
                                     GitHub
                                 </a>
                             )}
+                            <br></br>
                             {project.liveUrl && (
                                 <a href={project.liveUrl} target="_blank" rel="noreferrer">
-                                    Live
+                                    Let's see it!
                                 </a>
                             )}
                         </div>
