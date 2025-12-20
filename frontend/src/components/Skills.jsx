@@ -13,7 +13,7 @@ export default function Skills() {
                 const response = await fetch(`${import.meta.env.VITE_API_URL}/api/skills`);
 
                 if (!response.ok) {
-                    throw new Error("Failed to fetch projects");
+                    throw new Error("Failed to fetch skills");
                 }
 
                 const data = await response.json();
