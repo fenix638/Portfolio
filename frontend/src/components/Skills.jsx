@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { skillIcons } from "../icons/skillIcons";
+import Loader from "../components/Loader";
 
 export default function Skills() {
     const [skills, setSkills] = useState([]);
@@ -31,7 +32,7 @@ export default function Skills() {
     if (loading) {
         return (
             <section className="skills">
-                <p>Loading skills...</p>
+                <Loader text="Loading skills..." />
             </section>
         );
     }

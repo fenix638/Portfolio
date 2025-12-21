@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Loader from "../components/Loader";
 
 export default function ProjectList() {
     const [projects, setProjects] = useState([]);
@@ -30,7 +31,7 @@ export default function ProjectList() {
     if (loading) {
         return (
             <section className="projects">
-                <p>Loading projects...</p>
+                <Loader text="Loading skills..." />
             </section>
         );
     }
@@ -57,7 +58,12 @@ export default function ProjectList() {
     };
     return (
         <section id="projects" className="py-16 px-6 bg-gray-100">
-            <h2 className="text-3xl font-bold text-center mb-10">Projects</h2>
+            <motion.h2 className="text-3xl font-bold text-center mb-12"
+                       initial={{ opacity: 0, y: 20 }}
+                       whileInView={{ opacity: 1, y: 0 }}
+                       transition={{ duration: 0.6 }}>
+                Projects
+            </motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                 {projects.map((project, index) => (
