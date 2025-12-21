@@ -79,7 +79,8 @@ export default function ProjectList() {
                 {projects.map((project, index) => (
                     <motion.div
                         key={project.id}
-                        className="bg-white p-6 rounded-xl shadow-md cursor-pointer"
+                        className="bg-white p-6 rounded-xl border border-gray-200
+                         shadow-sm hover:shadow-lg cursor-pointer transition"
                         custom={index}
                         variants={itemVariants}
                         initial="hidden"
