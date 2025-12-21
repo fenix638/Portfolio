@@ -80,7 +80,7 @@ export default function ProjectList() {
                     <motion.div
                         key={project.id}
                         className="bg-white p-6 rounded-xl border border-gray-200
-                         shadow-sm hover:shadow-lg cursor-pointer transition"
+                         shadow-sm hover:shadow-lg cursor-pointer"
                         custom={index}
                         variants={itemVariants}
                         initial="hidden"
