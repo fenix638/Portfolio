@@ -48,7 +48,7 @@ export default function Hero() {
                     variants={item}
                     className="text-4xl md:text-5xl font-bold text-white mb-4"
                 >
-                    I’m Scott Thushyanthan
+                    I’m Scott J. Thushyanthan
                 </motion.h1>
 
                 <motion.div
