@@ -31,7 +31,7 @@ export default function ProjectList() {
     if (loading) {
         return (
             <section className="projects">
-                <Loader text="Loading skills..." />
+                <Loader text="Loading projects..." />
             </section>
         );
     }
