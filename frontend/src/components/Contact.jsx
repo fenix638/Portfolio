@@ -45,10 +45,10 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className="py-20 px-6 bg-gradient-to-b from-gray-100 to-gray-200"
+            className="px-6 bg-gray-100 py-20"
         >
             <motion.h2
-                className="text-3xl font-bold text-center mb-12"
+                className="text-3xl font-bold text-center mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -56,6 +56,15 @@ export default function Contact() {
                 Contact Me
             </motion.h2>
 
+            <motion.p
+                className="text-gray-500 text-center mb-12 max-w-xl mx-auto"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+            >
+                Have a question or want to work together?
+            </motion.p>
+            <div className="mx-auto mt-3 mb-10 h-1 w-16 rounded-full bg-purple-500/40" />
             <motion.form
                 onSubmit={handleSubmit}
                 className="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-md

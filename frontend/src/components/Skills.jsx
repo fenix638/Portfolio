@@ -58,15 +58,26 @@ export default function Skills() {
         }),
     };
     return (
-        <section id="skills" className="py-20 px-6 bg-gradient-to-b from-gray-100 to-gray-200">
+        <section id="skills" className="px-6 bg-gray-100 py-20">
+
             <motion.h2
-                className="text-3xl font-bold text-center mb-12"
+                className="text-3xl font-bold text-center mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
             >
                 Skills
             </motion.h2>
+
+            <motion.p
+                className="text-gray-500 text-center mb-12 max-w-xl mx-auto"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+            >
+                Technologies I use to build and maintain real-world applications
+            </motion.p>
+            <div className="mx-auto mt-3 mb-10 h-1 w-16 rounded-full bg-purple-500/40" />
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                 {skills.map((skill, index) => {
