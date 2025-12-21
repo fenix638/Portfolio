@@ -22,15 +22,16 @@ export default function Header() {
         ${scrolled ? "bg-gray-900 shadow-lg py-3" : "bg-transparent py-5"}
       `}
         >
-            <div className="max-w-5xl mx-auto flex justify-between items-center">
+            <div className="max-w-5xl mx-auto flex justify-between items-center ">
                 <h2 className="text-xl md:text-2xl font-bold tracking-wide text-white">
                     SJT
                 </h2>
 
                 <nav className="hidden md:flex gap-6 text-gray-300">
                     <a href="#hero" className="hover:text-white transition">Home</a>
-                    <a href="#projects" className="hover:text-white transition">Projects</a>
                     <a href="#skills" className="hover:text-white transition">Skills</a>
+                    <a href="#projects" className="hover:text-white transition">Projects</a>
+                    <a href="#contact" className="hover:text-white transition">Contact me</a>
                 </nav>
             </div>
         </motion.header>

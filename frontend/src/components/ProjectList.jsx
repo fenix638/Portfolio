@@ -57,7 +57,7 @@ export default function ProjectList() {
         }),
     };
     return (
-        <section id="projects" className="py-16 px-6 bg-gray-100">
+        <section id="projects" className="py-20 px-6 bg-gradient-to-b from-gray-100 to-gray-200">
             <motion.h2 className="text-3xl font-bold text-center mb-12"
                        initial={{ opacity: 0, y: 20 }}
                        whileInView={{ opacity: 1, y: 0 }}
